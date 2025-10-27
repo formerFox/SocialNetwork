@@ -35,12 +35,12 @@ namespace SocialNetwork.PLL.Views
             try
             {
                 messageService.SendMessage(messageSendingData);
-                SuccessMessage.Show("Сообщение успешно отправлено!");
+                SuccessMessageHelper.Show("Сообщение успешно отправлено!");
                 user = userService.FindById(user.Id);
             }
-            catch (UserNotFoundException) { AlertMessage.Show("Пользователь не найден!"); }
-            catch (ArgumentNullException) { AlertMessage.Show("Введите корректное значение!"); }
-            catch (Exception) { AlertMessage.Show("Произошла ошибка при отправке сообщения!"); }
+            catch (UserNotFoundException) { AlertMessageHelper.Show("Пользователь не найден!"); }
+            catch (ArgumentNullException) { AlertMessageHelper.Show("Введите корректное значение!"); }
+            catch (Exception) { AlertMessageHelper.Show("Произошла ошибка при отправке сообщения!"); }
         }
     }
 }
