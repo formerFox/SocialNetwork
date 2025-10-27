@@ -5,8 +5,11 @@ using SocialNetwork.PLL.Views;
 
 class Program
 {
+    // Статические поля для сервисов бизнес-логики
     static MessageService messageService;
     static UserService userService;
+
+    // Статические поля для всех Views (экранов) приложения
     public static MainView mainView;
     public static RegistrationView registrationView;
     public static AuthenticationView authenticationView;
@@ -19,11 +22,15 @@ class Program
     public static AddingFriendView addingFriendView;
     public static UserFriendView userFriendView;
 
+    // Точка входа в приложение
     static void Main(string[] args)
     {
+        // Инициализация сервисов бизнес-логики
         userService = new UserService();
         messageService = new MessageService();
 
+        // Инициализация всех Views приложения
+        // Передаем необходимые зависимости в конструкторы
         mainView = new MainView();
         registrationView = new RegistrationView(userService);
         authenticationView = new AuthenticationView(userService);
@@ -36,8 +43,10 @@ class Program
         addingFriendView = new AddingFriendView(userService);
         userFriendView = new UserFriendView();
 
+        // Главный цикл приложения
         while (true)
         {
+            // Запуск главного меню приложения
             mainView.Show();
         }
     }

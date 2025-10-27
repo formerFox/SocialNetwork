@@ -7,11 +7,18 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.PLL.Views
 {
+    // View (экран) для отображения полной информации о профиле пользователя
+    // Показывает все данные пользователя в структурированном виде
     public class UserInfoView
     {
+        // Основной метод для отображения информации о пользователе
+        // Принимает объект пользователя со всеми его данными
         public void Show(User user)
         {
+            // Заголовок экрана
             Console.WriteLine("Информация о моем профиле");
+
+            // Построчный вывод всех полей пользователя
             Console.WriteLine("Мой идентификатор: {0}", user.Id);
             Console.WriteLine("Меня зовут: {0}", user.FirstName);
             Console.WriteLine("Моя фамилия: {0}", user.LastName);

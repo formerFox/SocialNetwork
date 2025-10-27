@@ -7,22 +7,30 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.PLL.Views
 {
+    // View (экран) для отображения входящих сообщений пользователя
+    // Показывает все сообщения, которые пользователь получил от других
     public class UserIncomingMessageView
     {
+        // Основной метод для отображения входящих сообщений
+        // Принимает коллекцию входящих сообщений
         public void Show(IEnumerable<Message> incomingMessages)
         {
+            // Заголовок экрана
             Console.WriteLine("Входящие сообщения");
 
-
+            // Проверка на пустой список сообщений
             if (incomingMessages.Count() == 0)
             {
                 Console.WriteLine("Входящих сообщения нет");
-                return;
+                return;  // Завершаем выполнение если сообщений нет
             }
 
+            // Для каждого сообщения в списке выводим информацию
             incomingMessages.ToList().ForEach(message =>
             {
-                Console.WriteLine("От кого: {0}. Текст сообщения: {1}", message.SenderEmail, message.Content);
+                // Вывод информации о сообщении
+                Console.WriteLine("От кого: {0}. Текст сообщения: {1}",
+                    message.SenderId, message.Content);
             });
         }
     }
